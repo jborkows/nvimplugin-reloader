@@ -16,7 +16,7 @@ local __Config = {
 -- @param ... function[]
 
 M.setup = function(...)
-	for _, plugin in ipairs(...) do
+	for _, plugin in ipairs({...}) do
 		plugin(__Config)
 	end
 	print(vim.inspect(__Config))
