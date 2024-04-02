@@ -9,7 +9,7 @@ local M = {}
 -- @field logerLevel string
 -- @field UserCommandName string
 local __Config = {
-	logerLevel = "info",
+	logerLevel = "debug",
 	userCommandName = "PluginMode"
 }
 
