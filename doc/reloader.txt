@@ -18,7 +18,7 @@ Usage
 Configures the pluging and register user command with name given in configuration. >
 
     local reloader = require('reloader')
-    reloader.setup(reloader.userCommandName("AAA"), reloader.debug())
+    reloader.setup(reloader.userCommandName("AAA"), reloader.debug)
     -- enables AAA as command to reload file after saving
 <
 
