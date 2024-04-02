@@ -43,21 +43,19 @@ end
 
 -- @return function
 -- @param _config __Config
-M.debug = function()
+M.debug = 
 	-- @param _config __Config
-	return function(_config)
+	function(_config)
 		print("Appying debug mode")
 		_config.loggerLevel = "debug"
 	end
-end
 -- @return function
 -- @param _config __Config
-M.info = function()
+M.info = 
 	-- @param _config __Config
-	return function(_config)
+	function(_config)
 		_config.loggerLevel = "info"
 	end
-end
 
 -- @return function
 -- @param name string
