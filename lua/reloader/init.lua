@@ -47,6 +47,7 @@ end
 M.debug = function()
 	-- @param _config __Config
 	return function(_config)
+		print("Appying debug mode")
 		_config.loggerLevel = "debug"
 	end
 end
