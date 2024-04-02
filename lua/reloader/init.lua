@@ -1,27 +1,27 @@
--- @class M 
+-- @class M
 -- @field __config __Config
--- @field debug function 
--- @field info function 
--- @field setup function 
+-- @field debug function
+-- @field info function
+-- @field setup function
 --
 local M = {}
 -- @class __Config
 -- @field logerLevel string
 -- @field UserCommandName string
 local __Config = {
-	logerLevel = "debug",
+	logerLevel = "info",
 	userCommandName = "PluginMode"
 }
 
 -- @param ... function[]
 
+local logger = require("plenary.log"):new()
 M.setup = function(...)
-	for _, plugin in ipairs({...}) do
+	for _, plugin in ipairs({ ... }) do
 		plugin(__Config)
 	end
 	print(vim.inspect(__Config))
 
-	local logger = require("plenary.log"):new()
 	logger.level = __Config.loggerLevel
 	local pluginModeGroup = vim.api.nvim_create_augroup("plugin-mode-jb", { clear = true })
 
@@ -59,7 +59,7 @@ M.info = function()
 	end
 end
 
--- @return function 
+-- @return function
 -- @param name string
 M.userCommandName = function(name)
 	-- @param _config __Config
