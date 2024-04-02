@@ -9,7 +9,7 @@ local M = {}
 -- @field logerLevel string
 -- @field UserCommandName string
 local __Config = {
-	logerLevel = "info",
+	loggerLevel = "info",
 	userCommandName = "PluginMode"
 }
 
@@ -20,7 +20,6 @@ M.setup = function(...)
 	for _, plugin in ipairs({ ... }) do
 		plugin(__Config)
 	end
-	print(vim.inspect(__Config))
 
 	logger.level = __Config.loggerLevel
 	local pluginModeGroup = vim.api.nvim_create_augroup("plugin-mode-jb", { clear = true })
@@ -46,7 +45,6 @@ end
 M.debug = 
 	-- @param _config __Config
 	function(_config)
-		print("Appying debug mode")
 		_config.loggerLevel = "debug"
 	end
 -- @return function
