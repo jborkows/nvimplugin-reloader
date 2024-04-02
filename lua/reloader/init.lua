@@ -16,17 +16,16 @@ local __Config = {
 -- @param ... function[]
 
 M.setup = function(...)
-	M.__config = __Config
-	for _, plugin in ipairs({ ... }) do
-		plugin(M.__config)
+	for _, plugin in ipairs(...) do
+		plugin(__Config)
 	end
-	print(vim.inspect(M.__config))
+	print(vim.inspect(__Config))
 
 	local logger = require("plenary.log"):new()
 	logger.level = __Config.loggerLevel
 	local pluginModeGroup = vim.api.nvim_create_augroup("plugin-mode-jb", { clear = true })
 
-	vim.api.nvim_create_user_command(M.__config.userCommandName, function()
+	vim.api.nvim_create_user_command(__Config.userCommandName, function()
 		logger.debug(vim.api.nvim_buf_get_name(0))
 		vim.api.nvim_create_autocmd("BufWritePost", {
 			group = pluginModeGroup,
